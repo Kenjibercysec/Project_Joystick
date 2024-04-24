@@ -1,0 +1,18 @@
+void setup() {
+  Serial.begin(9600); // Inicia a comunicação serial com a velocidade de 9600 bps
+}
+
+void loop() {
+  int xValue = analogRead(34); // Ler o valor do pino do eixo X do joystick
+  int yValue = analogRead(35); // Ler o valor do pino do eixo Y do joystick
+  int buttonState = digitalRead(32); // Ler o estado do botão do joystick
+
+  // Envia os valores X, Y e o estado do botão separados por vírgula
+  Serial.print(xValue);
+  Serial.print(",");
+  Serial.print(yValue);
+  Serial.print(",");
+  Serial.println(buttonState);
+  
+  delay(100); // Aguarda um curto período para evitar sobrecarregar a porta serial
+}
